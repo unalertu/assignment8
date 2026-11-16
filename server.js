@@ -75,6 +75,16 @@ app.get('/api/stats', (req, res) => {
   res.json({ requestsServed: requestCount });
 });
 
+// 404 fallback – must come after all real routes
+app.use((req, res) => {
+  if (req.path.startsWith('/api')) {
+    return res.status(404).json({ error: 'Not found' });
+  }
+  res.status(404).send(
+    '<h1>404 – Page Not Found</h1><p>The page you requested does not exist.</p>'
+  );
+});
+
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
