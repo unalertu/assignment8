@@ -14,6 +14,21 @@ const courses = [
   { id: 3, title: 'Database Systems', credits: 4 },
 ];
 
+let requestCount = 0;
+
+// Logs timestamp, method and URL for every request
+app.use((req, res, next) => {
+  const ts = new Date().toISOString();
+  console.log(`[${ts}] ${req.method} ${req.url}`);
+  next();
+});
+
+// Counts every request (including static files and 404s)
+app.use((req, res, next) => {
+  requestCount++;
+  next();
+});
+
 app.use(express.static(join(__dirname, 'public')));
 
 app.get('/hello', (req, res) => {
@@ -54,6 +69,10 @@ app.post('/api/subscribe', (req, res) => {
 
 app.get('/api/admin', (req, res) => {
   res.status(403).json({ error: 'Forbidden' });
+});
+
+app.get('/api/stats', (req, res) => {
+  res.json({ requestsServed: requestCount });
 });
 
 app.listen(PORT, () => {
