@@ -33,6 +33,21 @@ app.get('/api/courses', (req, res) => {
   res.json(courses);
 });
 
+app.get('/api/status', (req, res) => {
+  res.json({
+    status: 'ok',
+    nodeVersion: process.version,
+    uptimeSeconds: Math.floor(process.uptime()),
+  });
+});
+
+app.get('/api/headers', (req, res) => {
+  res.json({
+    'User-Agent': req.get('user-agent') ?? null,
+    Accept: req.get('accept') ?? null,
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
