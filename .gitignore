@@ -1,0 +1,8 @@
+﻿node_modules/
+.env
+commit_stages.ps1
+
+commit_stages.py
+server_v2.js
+server.log
+server.err
