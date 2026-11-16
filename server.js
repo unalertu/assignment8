@@ -8,7 +8,12 @@ const __dirname = dirname(__filename);
 const app = express();
 const PORT = process.env.PORT ?? 3000;
 
-// Serve public/ relative to this file so the server works from any directory
+const courses = [
+  { id: 1, title: 'Web Programming', credits: 6 },
+  { id: 2, title: 'Algorithms and Data Structures', credits: 5 },
+  { id: 3, title: 'Database Systems', credits: 4 },
+];
+
 app.use(express.static(join(__dirname, 'public')));
 
 app.get('/hello', (req, res) => {
@@ -18,6 +23,14 @@ app.get('/hello', (req, res) => {
 app.get('/robots.txt', (req, res) => {
   res.type('text/plain');
   res.send('User-agent: *\nDisallow: /api/\nAllow: /');
+});
+
+app.get('/old-page', (req, res) => {
+  res.redirect('/hello');
+});
+
+app.get('/api/courses', (req, res) => {
+  res.json(courses);
 });
 
 app.listen(PORT, () => {
