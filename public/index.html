@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computer Science Programme</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Computer Science Programme</h1>
+    <p>
+      Welcome to the information server for our Bachelor&#39;s programme in Computer Science.
+      This server provides details about available courses, system status, and more.
+      Explore the available API endpoints using the buttons below.
+    </p>
+  </header>
+
+  <main>
+    <section class="api-tester">
+      <h2>API Explorer</h2>
+      <div class="buttons">
+        <button data-url="/api/courses"     data-method="GET" >GET /api/courses</button>
+        <button data-url="/api/status"      data-method="GET" >GET /api/status</button>
+        <button data-url="/api/headers"     data-method="GET" >GET /api/headers</button>
+        <button data-url="/api/subscribe"   data-method="POST">POST /api/subscribe</button>
+        <button data-url="/api/admin"       data-method="GET" >GET /api/admin</button>
+        <button data-url="/api/stats"       data-method="GET" >GET /api/stats</button>
+        <button data-url="/api/nonexistent" data-method="GET" >GET /api/nonexistent (404)</button>
+      </div>
+
+      <div class="response-panel">
+        <div class="response-meta" id="responseMeta">Click a button to call an endpoint.</div>
+        <pre id="responseBody"></pre>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

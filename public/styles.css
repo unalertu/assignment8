@@ -1,0 +1,93 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f4f6f8;
+  color: #222;
+  line-height: 1.6;
+}
+
+header {
+  background: #1a1a2e;
+  color: #fff;
+  padding: 2rem;
+}
+
+header h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  max-width: 60ch;
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+main {
+  max-width: 860px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.api-tester h2 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+button {
+  padding: 0.45rem 0.9rem;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-family: monospace;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+button:hover {
+  background: #e8eaed;
+  border-color: #888;
+}
+
+.response-panel {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.response-meta {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-bottom: 1px solid #ddd;
+  min-height: 2.2rem;
+  color: #555;
+}
+
+.response-meta.ok       { background: #d4edda; color: #155724; }
+.response-meta.created  { background: #cce5ff; color: #004085; }
+.response-meta.redirect { background: #fff3cd; color: #856404; }
+.response-meta.error    { background: #f8d7da; color: #721c24; }
+
+pre {
+  padding: 1rem;
+  font-size: 0.82rem;
+  white-space: pre-wrap;
+  word-break: break-all;
+  min-height: 5rem;
+  color: #333;
+}
